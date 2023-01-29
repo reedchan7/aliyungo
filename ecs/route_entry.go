@@ -1,6 +1,6 @@
 package ecs
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 type DescribeRouteEntryListArgs struct {
 	RegionId             string
@@ -53,7 +53,6 @@ type NextHopRelatedInfo struct {
 }
 
 // DescribeRouteEntryList describes route entries
-//
 func (client *Client) DescribeRouteEntryList(args *DescribeRouteEntryListArgs) (*DescribeRouteEntryListResponse, error) {
 	response := &DescribeRouteEntryListResponse{}
 	err := client.Invoke("DescribeRouteEntryList", args, &response)

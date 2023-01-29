@@ -1,8 +1,9 @@
 package slb
 
 import (
-	"github.com/denverdino/aliyungo/common"
 	"testing"
+
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestDescribeZones(t *testing.T) {

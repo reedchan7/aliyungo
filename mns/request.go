@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type request struct {

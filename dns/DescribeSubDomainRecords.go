@@ -1,11 +1,11 @@
 package dns
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 type DescribeSubDomainRecordsArgs struct {
 	SubDomain string
 
-	//optional
+	// optional
 	PageNumber int32
 	PageSize   int32
 	Type       string

@@ -1,7 +1,7 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type ResourceType string
@@ -25,7 +25,6 @@ const (
 	SupportedNetworkCategory    = SupportedResourceType("supportedNetworkCategory")
 )
 
-//
 // You can read doc at https://help.aliyun.com/document_detail/25670.html?spm=5176.doc25640.2.1.J24zQt
 type ResourcesInfoType struct {
 	ResourcesInfo []AvailableResourcesType
@@ -46,23 +45,20 @@ type DescribeZonesArgs struct {
 	RegionId common.Region
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&availableresourcecreationtype
 type AvailableResourceCreationType struct {
-	ResourceTypes []ResourceType //enum for Instance, Disk, VSwitch
+	ResourceTypes []ResourceType // enum for Instance, Disk, VSwitch
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&availablediskcategoriestype
 type AvailableDiskCategoriesType struct {
-	DiskCategories []DiskCategory //enum for cloud, ephemeral, ephemeral_ssd
+	DiskCategories []DiskCategory // enum for cloud, ephemeral, ephemeral_ssd
 }
 
 type AvailableInstanceTypesType struct {
 	InstanceTypes []string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&zonetype
 type ZoneType struct {
 	ZoneId                    string

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type ListenerStatus string
@@ -462,8 +462,8 @@ const (
 	HTTPS = ListenerType("HTTPS")
 )
 
-const DefaultWaitForInterval = 5 //5 seconds
-const DefaultTimeout = 60        //60 seconds
+const DefaultWaitForInterval = 5 // 5 seconds
+const DefaultTimeout = 60        // 60 seconds
 
 // WaitForListener waits for listener to given status
 func (client *Client) WaitForListener(loadBalancerId string, port int, listenerType ListenerType) (status ListenerStatus, err error) {
@@ -483,7 +483,7 @@ func (client *Client) WaitForListener(loadBalancerId string, port int, listenerT
 			return response.Status, common.GetClientErrorFromString("Timeout")
 		}
 		time.Sleep(DefaultWaitForInterval * time.Second)
-		//Sleep first to ensure the previous request is sent
+		// Sleep first to ensure the previous request is sent
 		err = client.Invoke(method, args, response)
 		if err != nil {
 			return "", err
@@ -518,7 +518,7 @@ func (client *Client) WaitForListenerAsyn(loadBalancerId string, port int, liste
 			}
 			return err
 		} else if response != nil && response.Status == status {
-			//TODO
+			// TODO
 			break
 		}
 		timeout = timeout - DefaultWaitForInterval

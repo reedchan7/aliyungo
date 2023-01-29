@@ -2,11 +2,10 @@ package rds
 
 import (
 	"fmt"
+	"log"
 	"time"
 
-	"log"
-
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type DBInstanceIPArray struct {
@@ -49,7 +48,7 @@ func (client *Client) ModifySecurityIps(args *ModifySecurityIpsArgs) (resp *comm
 	if args.SecurityIps == "" {
 		return response, nil
 	}
-	//Query security ips and add new ips
+	// Query security ips and add new ips
 	request := &DescribeDBInstanceIPArrayListArgs{
 		DBInstanceId:          args.DBInstanceId,
 		DBInstanceIPArrayName: args.DBInstanceIPArrayName,
@@ -878,7 +877,6 @@ type ModifyDatabaseDescriptionArgs struct {
 }
 
 // ModifyDBDescription create rds database description
-//
 func (client *Client) ModifyDatabaseDescription(args *ModifyDatabaseDescriptionArgs) error {
 	response := common.Response{}
 	return client.Invoke("ModifyDBDescription", args, &response)
@@ -948,7 +946,6 @@ type ModifyAccountDescriptionArgs struct {
 }
 
 // ModifyDBDescription create rds database description
-//
 func (client *Client) ModifyAccountDescription(args *ModifyAccountDescriptionArgs) error {
 	response := common.Response{}
 	return client.Invoke("ModifyAccountDescription", args, &response)

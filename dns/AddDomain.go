@@ -3,13 +3,13 @@ package dns
 import (
 	"log"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type AddDomainArgs struct {
 	DomainName string
 
-	//optional
+	// optional
 	GroupId string
 }
 

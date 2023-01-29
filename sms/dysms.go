@@ -3,10 +3,10 @@ package sms
 import (
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
-//阿里云通信
+// 阿里云通信
 type SendSmsArgs struct {
 	PhoneNumbers    string
 	SignName        string

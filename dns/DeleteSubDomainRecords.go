@@ -1,12 +1,12 @@
 package dns
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 type DeleteSubDomainRecordsArgs struct {
 	DomainName string
 	RR         string
 
-	//optional
+	// optional
 	Type string
 }
 

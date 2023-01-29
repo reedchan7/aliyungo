@@ -5,8 +5,8 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type AllocatePublicIpAddressArgs struct {
@@ -153,15 +153,14 @@ const (
 
 type DescribeEipAddressesArgs struct {
 	RegionId               common.Region
-	Status                 EipStatus //enum Associating | Unassociating | InUse | Available
+	Status                 EipStatus // enum Associating | Unassociating | InUse | Available
 	EipAddress             string
 	AllocationId           string
-	AssociatedInstanceType AssociatedInstanceType //enum EcsInstance | SlbInstance | Nat | HaVip | NetworkInterface
-	AssociatedInstanceId   string                 //绑定的资源的Id。 这是一个过滤器性质的参数，若不指定，则表示不适用该条件对结果进行过滤。 如果要使用该过滤器，必须同时使用AssociatedInstanceType。若InstanceType为EcsInstance，则此处填写ECS实例Id。若InstanceType为SlbInstance，则此处填写VPC类型的私网SLB 的实例ID。若InstanceType为Nat，则此处填写NAT 的实例ID。。若InstanceType为HaVip，则此处填写HaVipId。
+	AssociatedInstanceType AssociatedInstanceType // enum EcsInstance | SlbInstance | Nat | HaVip | NetworkInterface
+	AssociatedInstanceId   string                 // 绑定的资源的Id。 这是一个过滤器性质的参数，若不指定，则表示不适用该条件对结果进行过滤。 如果要使用该过滤器，必须同时使用AssociatedInstanceType。若InstanceType为EcsInstance，则此处填写ECS实例Id。若InstanceType为SlbInstance，则此处填写VPC类型的私网SLB 的实例ID。若InstanceType为Nat，则此处填写NAT 的实例ID。。若InstanceType为HaVip，则此处填写HaVipId。
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&eipaddresssettype
 type EipAddressSetType struct {
 	RegionId           common.Region

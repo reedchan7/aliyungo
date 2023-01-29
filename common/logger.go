@@ -2,12 +2,13 @@ package common
 
 import (
 	"encoding/json"
-	"github.com/denverdino/aliyungo/common/utils"
 	"io"
 	"log"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/reedchan7/aliyungo/common/utils"
 )
 
 var logChannel string

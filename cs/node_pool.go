@@ -2,11 +2,12 @@ package cs
 
 import (
 	"fmt"
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/ecs"
 )
 
 type SpotPrice struct {
@@ -39,7 +40,7 @@ type ScalingGroup struct {
 	SystemDiskEncryptAlgorithm *string            `json:"system_disk_encrypt_algorithm"`
 	SystemDiskEncrypted        *bool              `json:"system_disk_encrypted"`
 	SystemDiskKMSKeyId         *string            `json:"system_disk_kms_key_id"`
-	DataDisks                  []NodePoolDataDisk `json:"data_disks"` //支持多个数据盘
+	DataDisks                  []NodePoolDataDisk `json:"data_disks"` // 支持多个数据盘
 	Tags                       []Tag              `json:"tags"`
 	ImageId                    *string            `json:"image_id"`
 	Platform                   *string            `json:"platform"`
@@ -70,7 +71,7 @@ type ScalingGroup struct {
 	// deploymentset
 	DeploymentSetId *string `json:"deploymentset_id"`
 	DesiredSize     *int64  `json:"desired_size,omitempty"`
-	
+
 	PolarDBIds []string `json:"polardb_ids"`
 }
 
@@ -168,7 +169,7 @@ type NodePoolStatus struct {
 	TotalNodes   int `json:"total_nodes"`
 	OfflineNodes int `json:"offline_nodes"`
 	ServingNodes int `json:"serving_nodes"`
-	//DesiredNodes int  `json:"desired_nodes"`
+	// DesiredNodes int  `json:"desired_nodes"`
 	RemovingNodes int    `json:"removing_nodes"`
 	FailedNodes   int    `json:"failed_nodes"`
 	InitialNodes  int    `json:"initial_nodes"`
@@ -246,7 +247,7 @@ func (client *Client) UpdateNodePool(clusterId string, nodePoolId string, reques
 	return response, nil
 }
 
-//Deprecated
+// Deprecated
 func (client *Client) DeleteNodePool(clusterId, nodePoolId string) error {
 	return client.Invoke("", http.MethodDelete, fmt.Sprintf("/clusters/%s/nodepools/%s", clusterId, nodePoolId), nil, nil, nil)
 }

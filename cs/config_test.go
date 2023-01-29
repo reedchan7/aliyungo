@@ -4,10 +4,10 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
-//Modify with your Access Key Id and Access Key Secret
+// Modify with your Access Key Id and Access Key Secret
 
 var (
 	TestAccessKeyId         = os.Getenv("AccessKeyId")

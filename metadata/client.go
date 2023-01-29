@@ -1,6 +1,7 @@
 package metadata
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -8,15 +9,12 @@ import (
 	"net"
 	"net/http"
 	"net/url"
+	"os"
+	"reflect"
 	"strings"
 	"time"
 
-	"encoding/json"
-	"reflect"
-
-	"os"
-
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 const (
@@ -273,7 +271,6 @@ func (m *MetaData) RamRoleToken(role string) (RoleAuth, error) {
 
 type requestMock func(resource string) (string, error)
 
-//
 type MetaDataRequest struct {
 	version      string
 	resourceType string

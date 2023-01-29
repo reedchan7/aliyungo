@@ -3,7 +3,7 @@ package slb
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type Client struct {
@@ -57,7 +57,7 @@ func NewSLBClientWithSecurityToken(accessKeyId string, accessKeySecret string, s
 	return NewSLBClientWithEndpointAndSecurityToken(endpoint, accessKeyId, accessKeySecret, securityToken, regionID)
 }
 
-//Only for hangzhou
+// Only for hangzhou
 func NewSLBClientWithSecurityToken4RegionalDomain(accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	endpoint := os.Getenv("SLB_ENDPOINT")
 	if endpoint != "" {
@@ -80,7 +80,7 @@ func NewSLBClientWithEndpointAndSecurityToken(endpoint string, accessKeyId strin
 	return client
 }
 
-//only for hangzhou
+// only for hangzhou
 func NewSLBClientWithEndpointAndSecurityToken4RegionalDomain(endpoint string, accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	client := &Client{}
 	client.WithEndpoint(endpoint).

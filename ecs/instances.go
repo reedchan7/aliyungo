@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 // InstanceStatus represents instance status
@@ -41,7 +41,6 @@ type DescribeUserdataArgs struct {
 	InstanceId string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&instancestatusitemtype
 type DescribeUserdataItemType struct {
 	UserData   string
@@ -75,7 +74,6 @@ type DescribeInstanceStatusArgs struct {
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&instancestatusitemtype
 type InstanceStatusItemType struct {
 	InstanceId string
@@ -181,25 +179,21 @@ type DescribeInstanceAttributeArgs struct {
 	InstanceId string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&operationlockstype
 type OperationLocksType struct {
-	LockReason []LockReasonType //enum for financial, security
+	LockReason []LockReasonType // enum for financial, security
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&securitygroupidsettype
 type SecurityGroupIdSetType struct {
 	SecurityGroupId string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&ipaddresssettype
 type IpAddressSetType struct {
 	IpAddress []string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&vpcattributestype
 type VpcAttributesType struct {
 	VpcId            string
@@ -208,7 +202,6 @@ type VpcAttributesType struct {
 	NatIpAddress     string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&eipaddressassociatetype
 type EipAddressAssociateType struct {
 	AllocationId       string
@@ -227,7 +220,6 @@ const (
 	SpotAsPriceGo      = SpotStrategyType("SpotAsPriceGo")
 )
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&instanceattributestype
 type InstanceAttributesType struct {
 	AutoReleaseTime    string
@@ -252,11 +244,11 @@ type InstanceAttributesType struct {
 	}
 	PublicIpAddress            IpAddressSetType
 	InnerIpAddress             IpAddressSetType
-	InstanceNetworkType        string //enum Classic | Vpc
+	InstanceNetworkType        string // enum Classic | Vpc
 	InternetMaxBandwidthIn     int
 	InternetMaxBandwidthOut    int
 	InternetChargeType         common.InternetChargeType
-	CreationTime               util.ISO6801Time //time.Time
+	CreationTime               util.ISO6801Time // time.Time
 	CreditSpecification        string
 	DedicatedHostAttribute     DedicatedHostAttributeType
 	DedicatedInstanceAttribute DedicatedInstanceAttributeType
@@ -390,7 +382,7 @@ type ModifyInstanceAttributeResponse struct {
 	common.Response
 }
 
-//ModifyInstanceAttribute  modify instance attrbute
+// ModifyInstanceAttribute  modify instance attrbute
 //
 // You can read doc at https://help.aliyun.com/document_detail/ecs/open-api/instance/modifyinstanceattribute.html
 func (client *Client) ModifyInstanceAttribute(args *ModifyInstanceAttributeArgs) error {
@@ -413,8 +405,8 @@ func (client *Client) WaitForInstance(instanceId string, status InstanceStatus, 
 			return err
 		}
 		if instance.Status == status {
-			//TODO
-			//Sleep one more time for timing issues
+			// TODO
+			// Sleep one more time for timing issues
 			time.Sleep(DefaultWaitForInterval * time.Second)
 			break
 		}
@@ -442,7 +434,7 @@ func (client *Client) WaitForInstanceAsyn(instanceId string, status InstanceStat
 				return err
 			}
 		} else if instance != nil && instance.Status == status {
-			//TODO
+			// TODO
 			break
 		}
 		timeout = timeout - DefaultWaitForInterval
@@ -465,7 +457,6 @@ type DescribeInstanceVncUrlResponse struct {
 	VncUrl string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/instance&describeinstancevncurl
 func (client *Client) DescribeInstanceVncUrl(args *DescribeInstanceVncUrlArgs) (string, error) {
 	response := DescribeInstanceVncUrlResponse{}
@@ -590,7 +581,7 @@ func (client *Client) DeleteInstance(instanceId string) error {
 
 type DataDiskType struct {
 	Size               int
-	Category           DiskCategory //Enum cloud, ephemeral, ephemeral_ssd
+	Category           DiskCategory // Enum cloud, ephemeral, ephemeral_ssd
 	SnapshotId         string
 	DiskName           string
 	Description        string
@@ -603,7 +594,7 @@ type DataDiskType struct {
 
 type SystemDiskType struct {
 	Size                 int
-	Category             DiskCategory //Enum cloud, ephemeral, ephemeral_ssd
+	Category             DiskCategory // Enum cloud, ephemeral, ephemeral_ssd
 	DiskName             string
 	Description          string
 	PerformanceLevel     DiskPerformanceLevel
@@ -786,9 +777,9 @@ type SecurityGroupResponse struct {
 	common.Response
 }
 
-//JoinSecurityGroup
+// JoinSecurityGroup
 //
-//You can read doc at https://help.aliyun.com/document_detail/ecs/open-api/instance/joinsecuritygroup.html
+// You can read doc at https://help.aliyun.com/document_detail/ecs/open-api/instance/joinsecuritygroup.html
 func (client *Client) JoinSecurityGroup(instanceId string, securityGroupId string) error {
 	args := SecurityGroupArgs{InstanceId: instanceId, SecurityGroupId: securityGroupId}
 	response := SecurityGroupResponse{}
@@ -796,9 +787,9 @@ func (client *Client) JoinSecurityGroup(instanceId string, securityGroupId strin
 	return err
 }
 
-//LeaveSecurityGroup
+// LeaveSecurityGroup
 //
-//You can read doc at https://help.aliyun.com/document_detail/ecs/open-api/instance/leavesecuritygroup.html
+// You can read doc at https://help.aliyun.com/document_detail/ecs/open-api/instance/leavesecuritygroup.html
 func (client *Client) LeaveSecurityGroup(instanceId string, securityGroupId string) error {
 	args := SecurityGroupArgs{InstanceId: instanceId, SecurityGroupId: securityGroupId}
 	response := SecurityGroupResponse{}
@@ -872,10 +863,10 @@ type ModifyInstanceSpecResponse struct {
 	common.Response
 }
 
-//ModifyInstanceSpec  modify instance specification
+// ModifyInstanceSpec  modify instance specification
 //
 // Notice: 1. An instance that was successfully modified once cannot be modified again within 5 minutes.
-// 	   2. The API only can be used Pay-As-You-Go (PostPaid) instance
+//  2. The API only can be used Pay-As-You-Go (PostPaid) instance
 //
 // You can read doc at https://www.alibabacloud.com/help/doc-detail/57633.htm
 func (client *Client) ModifyInstanceSpec(args *ModifyInstanceSpecArgs) error {
@@ -893,7 +884,7 @@ type ModifyInstanceVpcAttributeResponse struct {
 	common.Response
 }
 
-//ModifyInstanceVpcAttribute  modify instance vswitchID and private ip address
+// ModifyInstanceVpcAttribute  modify instance vswitchID and private ip address
 //
 // You can read doc at https://www.alibabacloud.com/help/doc-detail/25504.htm
 func (client *Client) ModifyInstanceVpcAttribute(args *ModifyInstanceVpcAttributeArgs) error {
@@ -917,7 +908,7 @@ type ModifyInstanceChargeTypeResponse struct {
 	Order string
 }
 
-//ModifyInstanceChargeType  modify instance charge type
+// ModifyInstanceChargeType  modify instance charge type
 //
 // You can read doc at https://www.alibabacloud.com/help/doc-detail/25504.htm
 func (client *Client) ModifyInstanceChargeType(args *ModifyInstanceChargeTypeArgs) (*ModifyInstanceChargeTypeResponse, error) {

@@ -3,7 +3,7 @@ package cen
 import (
 	"log"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type PublishRouteEntriesArgs struct {

@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 // ImageOwnerAlias represents image owner
@@ -18,7 +18,7 @@ const (
 	ImageOwnerSelf        = ImageOwnerAlias("self")
 	ImageOwnerOthers      = ImageOwnerAlias("others")
 	ImageOwnerMarketplace = ImageOwnerAlias("marketplace")
-	ImageOwnerDefault     = ImageOwnerAlias("") //Return the values for system, self, and others
+	ImageOwnerDefault     = ImageOwnerAlias("") // Return the values for system, self, and others
 )
 
 type ImageStatus string
@@ -65,22 +65,20 @@ type DescribeImagesResponse struct {
 	}
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&diskdevicemapping
 type DiskDeviceMapping struct {
 	SnapshotId string
-	//Why Size Field is string-type.
+	// Why Size Field is string-type.
 	Size string
 	// Now the key Size change to DiskImageSize
 	DiskImageSize string
 	Device        string
-	//For import images
+	// For import images
 	Format    string
 	OSSBucket string
 	OSSObject string
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&imagetype
 type ImageType struct {
 	ImageId            string
@@ -297,7 +295,7 @@ type ImportImageResponse struct {
 // Default timeout value for WaitForImageReady method
 const ImageDefaultTimeout = 120
 
-//Wait Image ready
+// Wait Image ready
 func (client *Client) WaitForImageReady(regionId common.Region, imageId string, timeout int) error {
 	if timeout <= 0 {
 		timeout = ImageDefaultTimeout

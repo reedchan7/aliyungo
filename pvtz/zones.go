@@ -1,8 +1,8 @@
 package pvtz
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type DescribeZonesArgs struct {
@@ -12,7 +12,6 @@ type DescribeZonesArgs struct {
 	common.Pagination
 }
 
-//
 type ZoneType struct {
 	ZoneName    string
 	ZoneId      string

@@ -2,17 +2,17 @@ package cms
 
 import (
 	"bytes"
-	"log"
-	"time"
-
-	"github.com/denverdino/aliyungo/cms/util"
 	//	"fmt"
 	"encoding/json"
 	"errors"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"sort"
 	"strings"
+	"time"
+
+	"github.com/reedchan7/aliyungo/cms/util"
 )
 
 const (
@@ -68,7 +68,7 @@ func (client *Client) Sign(method string, url string, req *http.Request, querys 
 	}
 	buf.WriteString(url)
 
-	//fmt.Printf("SignString = %s ", buf.String())
+	// fmt.Printf("SignString = %s ", buf.String())
 
 	signiture := util.HmacSha1(client.GetAccessSecret(), buf.String())
 
@@ -171,7 +171,7 @@ func (c *Client) GetResponseJson(method string, requestUrl string, requestPath s
 		reqest.Header.Del("Content-MD5")
 
 	}
-	//reqest.Header.Del("Accept-Encoding")
+	// reqest.Header.Del("Accept-Encoding")
 	reqest.Header.Set("Accept-Encoding", "deflate,sdch")
 
 	log.Printf("RequestUrl = %++v", reqest)
@@ -191,7 +191,7 @@ func (c *Client) GetResponseJson(method string, requestUrl string, requestPath s
 	if err != nil {
 		return "", err
 	}
-	//如果状态吗是非200则进行返回值的过滤,使得pop返回的错误和程序的错误输出一致
+	// 如果状态吗是非200则进行返回值的过滤,使得pop返回的错误和程序的错误输出一致
 	if response.StatusCode != 200 {
 		err = errors.New("Response status code faild" + string(rsBody))
 		type ResultError struct {

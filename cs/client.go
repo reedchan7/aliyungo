@@ -12,8 +12,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 const (
@@ -220,7 +220,7 @@ func (client *Client) Invoke(region common.Region, method string, path string, q
 
 	if response != nil && len(body) > 0 {
 		err = json.Unmarshal(body, response)
-		//log.Printf("%++v", response)
+		// log.Printf("%++v", response)
 		if err != nil {
 			return common.GetClientError(err)
 		}

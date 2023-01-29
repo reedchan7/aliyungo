@@ -1,11 +1,11 @@
 package dns
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 type DescribeDomainRecordsNewArgs struct {
 	DomainName string
 
-	//optional
+	// optional
 	common.Pagination
 	RRKeyWord    string
 	TypeKeyWord  string

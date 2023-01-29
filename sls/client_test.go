@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 var (
@@ -30,7 +30,7 @@ func DefaultProject(t *testing.T) *Project {
 	if err != nil {
 		t.Fatalf("get project fail: %s", err.Error())
 	}
-	//Create default logstore
+	// Create default logstore
 
 	logstore := &Logstore{
 		TTL:   2,

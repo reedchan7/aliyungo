@@ -3,7 +3,7 @@ package ess
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type LifecycleState string

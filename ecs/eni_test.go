@@ -1,9 +1,10 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
 	"testing"
 	"time"
+
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestAssignPrivateIPAddresses(t *testing.T) {

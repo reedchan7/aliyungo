@@ -1,9 +1,9 @@
 package sms
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
-//dysms是阿里云通讯的短信服务，sms是旧版本邮件推送产品短信功能，两者互不相通，必须使用对应的API。
-//目前阿里已经把短信服务整合至MNS中，2017年6月22日以后开通的用户请使用MNS来发送短信。
+// dysms是阿里云通讯的短信服务，sms是旧版本邮件推送产品短信功能，两者互不相通，必须使用对应的API。
+// 目前阿里已经把短信服务整合至MNS中，2017年6月22日以后开通的用户请使用MNS来发送短信。
 
 const (
 	DYSmsEndPoint   = "https://dysmsapi.aliyuncs.com/"

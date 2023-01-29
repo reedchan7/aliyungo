@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func ExampleClient_DescribeInstanceStatus() {
@@ -255,7 +255,7 @@ func TestLeaveSecurityGroup(t *testing.T) {
 func TestLocationECSClient(t *testing.T) {
 	client := NetTestLocationClientForDebug()
 
-	//CreateInstance
+	// CreateInstance
 	args := CreateInstanceArgs{
 		RegionId:           TestRegionID,
 		ImageId:            TestImageId,
@@ -272,7 +272,7 @@ func TestLocationECSClient(t *testing.T) {
 	}
 	t.Logf("Instance %s is created successfully.", instanceId)
 
-	//DescribeInstance Attribute
+	// DescribeInstance Attribute
 	attr, err := client.DescribeInstanceAttribute(instanceId)
 	if err != nil {
 		t.Fatalf("Failed to DescribeInstanceAttribute %++v", err)
@@ -280,7 +280,7 @@ func TestLocationECSClient(t *testing.T) {
 
 	t.Logf("InstanceAttribute is %++v", attr)
 
-	//DeleteInstance
+	// DeleteInstance
 	err = client.DeleteInstance(instanceId)
 	if err != nil {
 		t.Fatalf("Failed to delete instance %++v", err)
@@ -292,7 +292,7 @@ func TestLocationECSClient(t *testing.T) {
 func TestAttachInstanceRamRole(t *testing.T) {
 	client := NewTestClient()
 
-	//AttachInstanceRamRole
+	// AttachInstanceRamRole
 	InstanceIds := []string{"i-6wegya1zr8ysx8adyrt3", "i-6wee4x5wzct8x8pr6sar", "i-6we3c5f1nqem3t9bxgot"}
 	b, _ := json.Marshal(InstanceIds)
 	args := &AttachInstancesArgs{
@@ -335,7 +335,7 @@ func TestClient_DescribeInstances(t *testing.T) {
 			PageNumber: 1,
 			PageSize:   2,
 		},
-		//SecurityToken: TestSecurityToken,
+		// SecurityToken: TestSecurityToken,
 	}
 
 	response, _, err := client.DescribeInstances(args)
@@ -355,7 +355,7 @@ func Test_CreateDescribeAndDeletiongInstances(t *testing.T) {
 	}
 	client := NewTestClientForDebug()
 
-	//createInstance
+	// createInstance
 	createInstanceArgs := &CreateInstanceArgs{
 		RegionId:           TestRegionID,
 		InstanceType:       TestInstanceType,
@@ -371,7 +371,7 @@ func Test_CreateDescribeAndDeletiongInstances(t *testing.T) {
 		t.Fatalf("CreateInstance error %v", err)
 	}
 
-	//wait for stoppend
+	// wait for stoppend
 	err = client.WaitForInstance(instanceId, Stopped, 60)
 	if err != nil {
 		t.Fatalf("WaitForInstance Stopped error %v", err)
@@ -383,7 +383,7 @@ func Test_CreateDescribeAndDeletiongInstances(t *testing.T) {
 		t.Fatalf("StartInstance %s error %v", instanceId, err)
 	}
 
-	//wait for running
+	// wait for running
 	err = client.WaitForInstance(instanceId, Running, 0)
 	if err != nil {
 		t.Fatalf("WaitForInstance Running error %v", err)
@@ -392,7 +392,7 @@ func Test_CreateDescribeAndDeletiongInstances(t *testing.T) {
 	time.Sleep(10 * time.Second)
 	t.Logf("After 30s ,describe instance %s", instanceId)
 
-	//describe Instances
+	// describe Instances
 	instanceB, _ := json.Marshal([]string{instanceId})
 	describeInstancesArgs := &DescribeInstancesArgs{
 		RegionId:    TestRegionID,
@@ -412,13 +412,13 @@ func Test_CreateDescribeAndDeletiongInstances(t *testing.T) {
 	time.Sleep(30 * time.Second)
 	t.Logf("After 30s ,delete instance %s", instanceId)
 
-	//stop instance
+	// stop instance
 	err = client.StopInstance(instanceId, true)
 	if err != nil {
 		t.Fatalf("StopInstance %s error %v", instanceId, err)
 	}
 
-	//wait for stoppend
+	// wait for stoppend
 	err = client.WaitForInstance(instanceId, Stopped, 60)
 	if err != nil {
 		t.Fatalf("WaitForInstance Stopped error %v", err)

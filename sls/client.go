@@ -4,18 +4,18 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-
-	"github.com/denverdino/aliyungo/common"
-	"github.com/golang/protobuf/proto"
-	//"time"
+	// "time"
 	"os"
 	"strconv"
+
+	"github.com/golang/protobuf/proto"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type Client struct {
-	accessKeyId     string //Access Key Id
-	accessKeySecret string //Access Key Secret
-	securityToken   string //sts token
+	accessKeyId     string // Access Key Id
+	accessKeySecret string // Access Key Secret
+	securityToken   string // sts token
 	debug           bool
 	httpClient      *http.Client
 	version         string
@@ -42,21 +42,21 @@ type Project struct {
 	Description string `json:"description,omitempty"`
 }
 
-//type LogContent struct {
+// type LogContent struct {
 //	Key   string
 //	Value string
-//}
+// }
 //
-//type LogItem struct {
+// type LogItem struct {
 //	Time     time.Time
 //	Contents []*LogContent
-//}
+// }
 //
-//type LogGroupItem struct {
+// type LogGroupItem struct {
 //	Logs   []*LogItem
 //	Topic  string
 //	Source string
-//}
+// }
 
 type PutLogsRequest struct {
 	Project  string
@@ -178,7 +178,7 @@ func (client *Client) CreateProject(name string, description string) error {
 }
 
 //
-//func marshal() ([]byte, error) {
+// func marshal() ([]byte, error) {
 //
 //	logGroups := []*LogGroup{}
 //	tmp := []*LogGroupItem
@@ -211,7 +211,7 @@ func (client *Client) CreateProject(name string, description string) error {
 //	return proto.Marshal(&LogGroupList{
 //		LogGroupList: logGroups,
 //	})
-//}
+// }
 
 func (client *Client) PutLogs(putLogRequest *PutLogsRequest) error {
 	if putLogRequest == nil {

@@ -3,7 +3,7 @@ package pvtz
 import (
 	"log"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type RecordStatus string
@@ -19,7 +19,6 @@ type DescribeZoneRecordsArgs struct {
 	common.Pagination
 }
 
-//
 type ZoneRecordType struct {
 	RecordId int64
 	Rr       string

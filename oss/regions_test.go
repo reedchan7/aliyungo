@@ -1,7 +1,7 @@
 package oss_test
 
 import (
-	"github.com/denverdino/aliyungo/oss"
+	"github.com/reedchan7/aliyungo/oss"
 
 	"testing"
 )

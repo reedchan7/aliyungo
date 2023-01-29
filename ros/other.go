@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
-//https://help.aliyun.com/document_detail/28925.html?spm=5176.doc28923.6.597.Wktzdg
+// https://help.aliyun.com/document_detail/28925.html?spm=5176.doc28923.6.597.Wktzdg
 type DescribeEventsRequest struct {
 	ResourceStatus string
 	ResourceName   string
@@ -48,7 +48,7 @@ func (client *Client) DescribeEvents(stackId, stackName string, args *DescribeEv
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/50086.html?spm=5176.doc28910.6.598.ngYYj6
+// https://help.aliyun.com/document_detail/50086.html?spm=5176.doc28910.6.598.ngYYj6
 type Region struct {
 	LocalName string
 	RegionId  string

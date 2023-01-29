@@ -3,7 +3,7 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type EcsCommonResponse struct {
@@ -243,7 +243,7 @@ func (client *Client) WaitForRouterInterfaceAsyn(regionId common.Region, interfa
 		if err != nil {
 			return err
 		} else if interfaces != nil && InterfaceStatus(interfaces.RouterInterfaceSet.RouterInterfaceType[0].Status) == status {
-			//TODO
+			// TODO
 			break
 		}
 		timeout = timeout - DefaultWaitForInterval

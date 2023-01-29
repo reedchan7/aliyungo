@@ -3,19 +3,18 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type DescribeSnapshotsArgs struct {
 	RegionId    common.Region
 	InstanceId  string
 	DiskId      string
-	SnapshotIds []string //["s-xxxxxxxxx", "s-yyyyyyyyy", ..."s-zzzzzzzzz"]
+	SnapshotIds []string // ["s-xxxxxxxxx", "s-yyyyyyyyy", ..."s-zzzzzzzzz"]
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&snapshottype
 type SnapshotType struct {
 	SnapshotId     string
@@ -24,7 +23,7 @@ type SnapshotType struct {
 	Progress       string
 	SourceDiskId   string
 	SourceDiskSize int
-	SourceDiskType string //enum for System | Data
+	SourceDiskType string // enum for System | Data
 	ProductCode    string
 	Status         string
 	Usage          string

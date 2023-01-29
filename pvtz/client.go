@@ -3,7 +3,7 @@ package pvtz
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 // Interval for checking status in WaitForXXX method
@@ -60,7 +60,7 @@ func NewPVTZClientWithSecurityToken(accessKeyId string, accessKeySecret string, 
 	return NewPVTZClientWithEndpointAndSecurityToken(endpoint, accessKeyId, accessKeySecret, securityToken, regionID)
 }
 
-//Onlyfor hangzhou
+// Onlyfor hangzhou
 func NewPVTZClientWithSecurityToken4RegionalDomain(accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	endpoint := os.Getenv("PVTZ_ENDPOINT")
 	if endpoint == "" {
@@ -87,7 +87,7 @@ func NewPVTZClientWithEndpointAndSecurityToken(endpoint string, accessKeyId stri
 	return client
 }
 
-//only for hangzhou
+// only for hangzhou
 func NewPVTZClientWithEndpointAndSecurityToken4RegionalDomain(endpoint string, accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	client := &Client{}
 	client.WithEndpoint(endpoint).

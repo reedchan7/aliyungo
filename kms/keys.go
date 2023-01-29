@@ -1,8 +1,8 @@
 package kms
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
-//https://help.aliyun.com/document_detail/44197.html?spm=5176.doc54560.6.562.p7NkZB
+// https://help.aliyun.com/document_detail/44197.html?spm=5176.doc54560.6.562.p7NkZB
 type CancelKeyDeletionArgs struct {
 	KeyId string
 }
@@ -20,7 +20,7 @@ func (client *Client) CancelKeyDeletion(keyId string) (*CancelKeyDeletionRespons
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/28947.html?spm=5176.doc44197.6.563.CRY6Nq
+// https://help.aliyun.com/document_detail/28947.html?spm=5176.doc44197.6.563.CRY6Nq
 type KeyUsage string
 
 const (
@@ -54,7 +54,7 @@ func (client *Client) CreateKey(args *CreateKeyArgs) (*CreateKeyResponse, error)
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/28952.html?spm=5176.doc28950.6.565.66jjUg
+// https://help.aliyun.com/document_detail/28952.html?spm=5176.doc28950.6.565.66jjUg
 type DescribeKeyArgs struct {
 	KeyId string
 }
@@ -70,7 +70,7 @@ func (client *Client) DescribeKey(keyId string) (*DescribeKeyResponse, error) {
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/35151.html?spm=5176.doc28952.6.567.v0ZOgK
+// https://help.aliyun.com/document_detail/35151.html?spm=5176.doc28952.6.567.v0ZOgK
 type DisableKeyArgs struct {
 	KeyId string
 }
@@ -85,7 +85,7 @@ func (client *Client) DisableKey(keyId string) (*DisableKeyResponse, error) {
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/35150.html?spm=5176.doc35151.6.568.angV44
+// https://help.aliyun.com/document_detail/35150.html?spm=5176.doc35151.6.568.angV44
 type EnableKeyArgs struct {
 	KeyId string
 }
@@ -100,7 +100,7 @@ func (client *Client) EnableKey(keyId string) (*EnableKeyResponse, error) {
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/28948.html?spm=5176.doc28949.6.570.bFGCyz
+// https://help.aliyun.com/document_detail/28948.html?spm=5176.doc28949.6.570.bFGCyz
 type KeySpec string
 
 const (
@@ -128,7 +128,7 @@ func (client *Client) GenerateDataKey(args *GenerateDataKeyArgs) (*GenerateDataK
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/28951.html?spm=5176.doc28948.6.571.PIpkFD
+// https://help.aliyun.com/document_detail/28951.html?spm=5176.doc28948.6.571.PIpkFD
 type ListKeysArgs struct {
 	common.Pagination
 }
@@ -154,7 +154,7 @@ func (client *Client) ListKeys(args *ListKeysArgs) (*ListKeysResponse, error) {
 	return response, err
 }
 
-//https://help.aliyun.com/document_detail/44196.html?spm=5176.doc28951.6.572.9Oqd9S
+// https://help.aliyun.com/document_detail/44196.html?spm=5176.doc28951.6.572.9Oqd9S
 type ScheduleKeyDeletionArgs struct {
 	KeyId               string
 	PendingWindowInDays int

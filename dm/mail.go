@@ -3,7 +3,7 @@ package dm
 import (
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type SendEmailArgs struct {
@@ -18,12 +18,12 @@ type SendBatchMailArgs struct {
 	TagName      string
 }
 
-//remember to setup the accountName in your aliyun console
-//addressType should be "1" or "0",
+// remember to setup the accountName in your aliyun console
+// addressType should be "1" or "0",
 //0:random address, it's recommanded
 //1:sender's address
-//tagName is optional, you can use "" if you don't wanna use it
-//please set the receiverName and template in the console of Aliyun before you call this API,if you use tagName, you should set it as well
+// tagName is optional, you can use "" if you don't wanna use it
+// please set the receiverName and template in the console of Aliyun before you call this API,if you use tagName, you should set it as well
 
 func (this *Client) SendBatchMail(args *SendBatchMailArgs) error {
 	return this.InvokeByAnyMethod(http.MethodPost, BatchSendMail, "", args, &common.Response{})
@@ -39,13 +39,13 @@ type SendSingleMailArgs struct {
 	TextBody       string
 }
 
-//remember to setup the accountName in your aliyun console
-//addressType should be "1" or "0",
+// remember to setup the accountName in your aliyun console
+// addressType should be "1" or "0",
 //0:random address, it's recommanded
 //1:sender's address
-//please set the receiverName and template in the console of Aliyun before you call this API,if you use tagName, you should set it as well
+// please set the receiverName and template in the console of Aliyun before you call this API,if you use tagName, you should set it as well
 
-//fromAlias, subject, htmlBody, textBody are optional
+// fromAlias, subject, htmlBody, textBody are optional
 
 func (this *Client) SendSingleMail(args *SendSingleMailArgs) error {
 	return this.InvokeByAnyMethod(http.MethodPost, SingleSendMail, "", args, &common.Response{})

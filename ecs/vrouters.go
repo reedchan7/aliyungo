@@ -1,8 +1,8 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type DescribeVRoutersArgs struct {
@@ -11,7 +11,6 @@ type DescribeVRoutersArgs struct {
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&vroutersettype
 type VRouterSetType struct {
 	VRouterId     string

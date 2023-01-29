@@ -3,7 +3,7 @@ package cen
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 // Interval for checking status in WaitForXXX method
@@ -39,7 +39,7 @@ func NewCENClientWithSecurityToken(accessKeyId string, accessKeySecret string, s
 	return NewCENClientWithEndpointAndSecurityToken(endpoint, accessKeyId, accessKeySecret, securityToken, regionID)
 }
 
-//only for Hangzhou Regional Domain
+// only for Hangzhou Regional Domain
 func NewCENClientWithSecurityToken4RegionalDomain(accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	endpoint := os.Getenv("CEN_ENDPOINT")
 	if endpoint == "" {

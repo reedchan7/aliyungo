@@ -3,8 +3,8 @@ package cs
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/ecs"
 )
 
 func TestClient_DescribeClusters(t *testing.T) {
@@ -138,8 +138,8 @@ func _TestCreateKubernetesCluster(t *testing.T) {
 		Name:            "single-az-k8s",
 		ClusterType:     "Kubernetes",
 		DisableRollback: true,
-		//VPCID:                    "vpc-id",
-		//VSwitchId:                "vsw-id",
+		// VPCID:                    "vpc-id",
+		// VSwitchId:                "vsw-id",
 		ZoneId:                   "cn-hangzhou-g",
 		SNatEntry:                true,
 		NumOfNodes:               1,
@@ -177,8 +177,8 @@ func _TestCreateManagedKubernetesCluster(t *testing.T) {
 		Name:            "single-managed-az-k8s",
 		ClusterType:     "ManagedKubernetes",
 		DisableRollback: true,
-		//VPCID:                    "vpc-id",
-		//VSwitchId:                "vsw-id",
+		// VPCID:                    "vpc-id",
+		// VSwitchId:                "vsw-id",
 		ZoneId:                   "cn-hangzhou-g",
 		SNatEntry:                true,
 		NumOfNodes:               2,
@@ -272,7 +272,7 @@ func _TestCreateKubernetesMultiAZCluster(t *testing.T) {
 
 func TestScaleKubernetesCluster(t *testing.T) {
 	// Comment below to test
-	//t.SkipNow()
+	// t.SkipNow()
 
 	client := NewTestClientForDebug()
 

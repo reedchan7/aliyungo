@@ -3,7 +3,7 @@ package cms
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 var (

@@ -1,8 +1,8 @@
 package ess
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/ecs"
 )
 
 const (

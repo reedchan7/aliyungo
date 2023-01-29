@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type ServerlessCreationArgs struct {
@@ -29,7 +29,7 @@ type ServerlessCreationArgs struct {
 	Addons                []Addon                  `json:"addons"`
 	ResourceGroupId       string                   `json:"resource_group_id"`
 	ClusterSpec           string                   `json:"cluster_spec"`
-	LoadBalancerSpec      string                   `json:"load_balancer_spec"` //api server slb实例规格
+	LoadBalancerSpec      string                   `json:"load_balancer_spec"` // api server slb实例规格
 	ServiceCIDR           string                   `json:"service_cidr"`
 	TimeZone              string                   `json:"timezone"`
 	ServiceDiscoveryTypes []string                 `json:"service_discovery_types"`
@@ -74,7 +74,7 @@ func (this *ServerlessCreationArgs) Validate() error {
 	return nil
 }
 
-//create Serverless cluster
+// create Serverless cluster
 func (client *Client) CreateServerlessKubernetesCluster(args *ServerlessCreationArgs) (*ClusterCommonResponse, error) {
 	if args == nil {
 		return nil, common.GetCustomError("InvalidArgs", "The args is nil ")
@@ -97,7 +97,7 @@ func (client *Client) CreateServerlessKubernetesCluster(args *ServerlessCreation
 	return cluster, nil
 }
 
-//describe Serverless cluster
+// describe Serverless cluster
 func (client *Client) DescribeServerlessKubernetesCluster(clusterId string) (*ServerlessClusterResponse, error) {
 	cluster := &ServerlessClusterResponse{}
 	err := client.Invoke("", http.MethodGet, "/clusters/"+clusterId, nil, nil, cluster)
@@ -107,7 +107,7 @@ func (client *Client) DescribeServerlessKubernetesCluster(clusterId string) (*Se
 	return cluster, nil
 }
 
-//describe Serverless clsuters
+// describe Serverless clsuters
 func (client *Client) DescribeServerlessKubernetesClusters() ([]*ServerlessClusterResponse, error) {
 	allClusters := make([]*ServerlessClusterResponse, 0)
 	askClusters := make([]*ServerlessClusterResponse, 0)
@@ -131,7 +131,7 @@ func (client *Client) DescribeServerlessKubernetesClusters() ([]*ServerlessClust
 	return askClusters, nil
 }
 
-//new api for get cluster kube user config
+// new api for get cluster kube user config
 func (client *Client) DescribeClusterUserConfig(clusterId string, privateIpAddress bool) (*ClusterConfig, error) {
 	config := &ClusterConfig{}
 	query := url.Values{}

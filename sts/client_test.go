@@ -3,13 +3,13 @@ package sts
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/ram"
+	"github.com/reedchan7/aliyungo/ram"
 )
 
 /*
-	Set your AccessKeyId and AccessKeySecret in env
-	simply use the command below
-	AccessKeyId=YourAccessKeyId AccessKeySecret=YourAccessKeySecret go test
+Set your AccessKeyId and AccessKeySecret in env
+simply use the command below
+AccessKeyId=YourAccessKeyId AccessKeySecret=YourAccessKeySecret go test
 */
 var (
 	AccessKeyId     = os.Getenv("AccessKeyId")

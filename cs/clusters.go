@@ -1,19 +1,16 @@
 package cs
 
 import (
+	"encoding/json"
+	"fmt"
+	"math"
 	"net/http"
 	"net/url"
-
-	"math"
 	"strconv"
 	"time"
 
-	"fmt"
-
-	"encoding/json"
-
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/ecs"
 )
 
 type ClusterState string
@@ -116,7 +113,7 @@ type ClusterCommonResponse struct {
 	InstanceId string `json:"instanceId"`
 }
 
-//Deprecated
+// Deprecated
 func (client *Client) CreateCluster(region common.Region, args *ClusterCreationArgs) (cluster ClusterCommonResponse, err error) {
 	err = client.Invoke(region, http.MethodPost, "/clusters", nil, args, &cluster)
 	return
@@ -461,7 +458,7 @@ type KubernetesClusterScaleArgs struct {
 	EnsRegionId           string `json:"ens_region_id"`
 	EnsInternetChargeType string `json:"ens_internet_charge_type"`
 
-	//data disk
+	// data disk
 	WorkerDataDiskCategory  ecs.DiskCategory `json:"worker_data_disk_category"`
 	WorkerDataDiskSize      int64            `json:"worker_data_disk_size"`
 	WorkerDataDiskEncrypted string           `json:"worker_data_disk_encrypted"`
@@ -575,7 +572,7 @@ func (client *Client) WaitForClusterAsyn(clusterId string, status ClusterState, 
 	} else if cluster.State == Failed {
 		return fmt.Errorf("Waitting for cluster %s %s failed. Looking the specified reason in the web console.", clusterId, status)
 	} else if cluster.State == status {
-		//TODO
+		// TODO
 		return nil
 	}
 
@@ -590,7 +587,7 @@ func (client *Client) WaitForClusterAsyn(clusterId string, status ClusterState, 
 		} else if cluster.State == Failed {
 			return fmt.Errorf("Waitting for cluster %s %s failed. Looking the specified reason in the web console.", clusterId, status)
 		} else if cluster.State == status {
-			//TODO
+			// TODO
 			break
 		}
 		timeout = timeout - DefaultWaitForInterval

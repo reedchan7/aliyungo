@@ -2,8 +2,9 @@ package ess
 
 import (
 	"encoding/base64"
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/ecs"
+
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/ecs"
 )
 
 type CreateScalingConfigurationArgs struct {
@@ -157,7 +158,6 @@ type DeactivateScalingConfigurationResponse struct {
 }
 
 // DeactivateScalingConfiguration deactivate scaling configuration
-//
 func (client *Client) DeactivateScalingConfiguration(args *DeactivateScalingConfigurationArgs) (resp *DeactivateScalingConfigurationResponse, err error) {
 	response := DeactivateScalingConfigurationResponse{}
 	err = client.InvokeByFlattenMethod("DeactivateScalingConfiguration", args, &response)

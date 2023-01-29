@@ -1,7 +1,7 @@
 package location
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type DescribeRegionsArgs struct {

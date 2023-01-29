@@ -3,13 +3,13 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type CreateVpcArgs struct {
 	RegionId    common.Region
-	CidrBlock   string //192.168.0.0/16 or 172.16.0.0/16 (default)
+	CidrBlock   string // 192.168.0.0/16 or 172.16.0.0/16 (default)
 	VpcName     string
 	Description string
 	ClientToken string
@@ -66,7 +66,6 @@ type DescribeVpcsArgs struct {
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&vpcsettype
 type VpcSetType struct {
 	VpcId      string

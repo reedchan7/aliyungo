@@ -1,8 +1,8 @@
 package kms
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
-//https://help.aliyun.com/document_detail/28949.html?spm=5176.doc28950.6.569.kI1mTw
+// https://help.aliyun.com/document_detail/28949.html?spm=5176.doc28950.6.569.kI1mTw
 type EncryptAgrs struct {
 	KeyId             string
 	Plaintext         string

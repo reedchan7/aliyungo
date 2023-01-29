@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestVPCCreationAndDeletion(t *testing.T) {
@@ -16,7 +16,7 @@ func TestVPCCreationAndDeletion(t *testing.T) {
 		t.Fatalf("Failed to describe instance %s: %v", TestInstanceId, err)
 	}
 
-	//client.SetDebug(true)
+	// client.SetDebug(true)
 
 	regionId := instance.RegionId
 	zoneId := instance.ZoneId
@@ -68,7 +68,7 @@ func TestVPCCreationAndDeletion(t *testing.T) {
 
 	_testECSSecurityGroupCreationAndDeletion(t, client, regionId, vpcId)
 
-	//Test VSwitch
+	// Test VSwitch
 	vSwitchId, err := testCreateVSwitch(t, client, regionId, zoneId, vpcId, resp.VRouterId)
 	if err != nil {
 		t.Errorf("Failed to create VSwitch: %v", err)
@@ -79,7 +79,7 @@ func TestVPCCreationAndDeletion(t *testing.T) {
 			if err == nil {
 				testEipAddress(t, client, regionId, instanceId)
 
-				//Test VRouter
+				// Test VRouter
 				testVRouter(t, client, regionId, vpcId, resp.VRouterId, instanceId)
 
 			}
@@ -104,7 +104,7 @@ func TestVPCCreationAndDeletion(t *testing.T) {
 				}
 			}
 			if sgId != "" {
-				//Wait the instance deleted completedly
+				// Wait the instance deleted completedly
 				time.Sleep(10 * time.Second)
 				err = client.DeleteSecurityGroup(regionId, sgId)
 				if err != nil {

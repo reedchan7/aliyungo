@@ -3,7 +3,7 @@ package dns
 import (
 	"log"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type AddDomainRecordArgs struct {
@@ -12,7 +12,7 @@ type AddDomainRecordArgs struct {
 	Type       string
 	Value      string
 
-	//optional
+	// optional
 	TTL      int32
 	Priority int32
 	Line     string

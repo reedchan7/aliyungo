@@ -1,11 +1,11 @@
 package cdn
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 type AddDomainRequest struct {
 	DomainName string
 	CdnType    string
-	//optional
+	// optional
 	SourceType string
 	SourcePort int
 	Sources    string
@@ -13,7 +13,7 @@ type AddDomainRequest struct {
 }
 
 type DescribeDomainsRequest struct {
-	//optional
+	// optional
 	common.Pagination
 	DomainName       string
 	DomainStatus     string

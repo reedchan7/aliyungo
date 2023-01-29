@@ -22,8 +22,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 const DefaultContentType = "application/octet-stream"
@@ -56,7 +56,6 @@ type Owner struct {
 }
 
 // Options struct
-//
 type Options struct {
 	ServerSideEncryption      bool
 	ServerSideEncryptionKeyID string
@@ -66,15 +65,15 @@ type Options struct {
 	CacheControl       string
 	ContentMD5         string
 	ContentDisposition string
-	//Range              string
-	//Expires int
+	// Range              string
+	// Expires int
 }
 
 type CopyOptions struct {
 	Headers           http.Header
 	CopySourceOptions string
 	MetadataDirective string
-	//ContentType       string
+	// ContentType       string
 
 	ServerSideEncryption      bool
 	ServerSideEncryptionKeyID string
@@ -717,42 +716,41 @@ type Key struct {
 //
 // For example, given these keys in a bucket:
 //
-//     index.html
-//     index2.html
-//     photos/2006/January/sample.jpg
-//     photos/2006/February/sample2.jpg
-//     photos/2006/February/sample3.jpg
-//     photos/2006/February/sample4.jpg
+//	index.html
+//	index2.html
+//	photos/2006/January/sample.jpg
+//	photos/2006/February/sample2.jpg
+//	photos/2006/February/sample3.jpg
+//	photos/2006/February/sample4.jpg
 //
 // Listing this bucket with delimiter set to "/" would yield the
 // following result:
 //
-//     &ListResp{
-//         Name:      "sample-bucket",
-//         MaxKeys:   1000,
-//         Delimiter: "/",
-//         Contents:  []Key{
-//             {Key: "index.html", "index2.html"},
-//         },
-//         CommonPrefixes: []string{
-//             "photos/",
-//         },
-//     }
+//	&ListResp{
+//	    Name:      "sample-bucket",
+//	    MaxKeys:   1000,
+//	    Delimiter: "/",
+//	    Contents:  []Key{
+//	        {Key: "index.html", "index2.html"},
+//	    },
+//	    CommonPrefixes: []string{
+//	        "photos/",
+//	    },
+//	}
 //
 // Listing the same bucket with delimiter set to "/" and prefix set to
 // "photos/2006/" would yield the following result:
 //
-//     &ListResp{
-//         Name:      "sample-bucket",
-//         MaxKeys:   1000,
-//         Delimiter: "/",
-//         Prefix:    "photos/2006/",
-//         CommonPrefixes: []string{
-//             "photos/2006/February/",
-//             "photos/2006/January/",
-//         },
-//     }
-//
+//	&ListResp{
+//	    Name:      "sample-bucket",
+//	    MaxKeys:   1000,
+//	    Delimiter: "/",
+//	    Prefix:    "photos/2006/",
+//	    CommonPrefixes: []string{
+//	        "photos/2006/February/",
+//	        "photos/2006/January/",
+//	    },
+//	}
 //
 // You can read doc at http://docs.aliyun.com/#/pub/oss/api-reference/bucket&GetBucket
 func (b *Bucket) List(prefix, delim, marker string, max int) (result *ListResp, err error) {
@@ -899,7 +897,7 @@ func (b *Bucket) SignedURLWithMethod(method, path string, expires time.Time, par
 // contenttype is a string like image/png
 // name is the resource name in OSS terminology like images/ali.png [obviously excluding the bucket name itself]
 func (b *Bucket) UploadSignedURL(name, method, contentType string, expires time.Time) string {
-	//TODO TESTING
+	// TODO TESTING
 	expireDate := expires.Unix()
 	if method != "POST" {
 		method = "PUT"
@@ -1024,14 +1022,16 @@ func (client *Client) setBaseURL(req *request) error {
 // partiallyEscapedPath partially escapes the OSS path allowing for all OSS REST API calls.
 //
 // Some commands including:
-//      GET Bucket acl              http://goo.gl/aoXflF
-//      GET Bucket cors             http://goo.gl/UlmBdx
-//      GET Bucket lifecycle        http://goo.gl/8Fme7M
-//      GET Bucket policy           http://goo.gl/ClXIo3
-//      GET Bucket location         http://goo.gl/5lh8RD
-//      GET Bucket Logging          http://goo.gl/sZ5ckF
-//      GET Bucket notification     http://goo.gl/qSSZKD
-//      GET Bucket tagging          http://goo.gl/QRvxnM
+//
+//	GET Bucket acl              http://goo.gl/aoXflF
+//	GET Bucket cors             http://goo.gl/UlmBdx
+//	GET Bucket lifecycle        http://goo.gl/8Fme7M
+//	GET Bucket policy           http://goo.gl/ClXIo3
+//	GET Bucket location         http://goo.gl/5lh8RD
+//	GET Bucket Logging          http://goo.gl/sZ5ckF
+//	GET Bucket notification     http://goo.gl/qSSZKD
+//	GET Bucket tagging          http://goo.gl/QRvxnM
+//
 // require the first character after the bucket name in the path to be a literal '?' and
 // not the escaped hex representation '%3F'.
 func partiallyEscapedPath(path string) string {
@@ -1343,8 +1343,8 @@ func (b *Bucket) CopyLargeFile(sourcePath string, destPath string, contentType s
 	return b.CopyLargeFileInParallel(sourcePath, destPath, contentType, perm, options, 1)
 }
 
-const defaultChunkSize = int64(128 * 1024 * 1024) //128MB
-const maxCopytSize = int64(128 * 1024 * 1024)     //128MB
+const defaultChunkSize = int64(128 * 1024 * 1024) // 128MB
+const maxCopytSize = int64(128 * 1024 * 1024)     // 128MB
 
 // Copy large file in the same bucket
 func (b *Bucket) CopyLargeFileInParallel(sourcePath string, destPath string, contentType string, perm ACL, options Options, maxConcurrency int) error {

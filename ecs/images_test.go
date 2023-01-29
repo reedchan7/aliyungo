@@ -3,7 +3,7 @@ package ecs
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestImageCreationAndDeletion(t *testing.T) {
@@ -89,7 +89,7 @@ func TestCopyImage(t *testing.T) {
 
 	if err := client.WaitForImageReady(common.Hangzhou, imageId, 600); err != nil {
 		t.Errorf("Failed to WaitImage: %v", err)
-		//return
+		// return
 	}
 
 	describeReq := DescribeImagesArgs{

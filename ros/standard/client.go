@@ -1,7 +1,7 @@
 package standard
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 
 	"os"
 )

@@ -2,12 +2,11 @@ package kms
 
 import (
 	"fmt"
+	"os"
 	"testing"
 	"time"
 
-	"os"
-
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestClient_CreateKey(t *testing.T) {

@@ -3,10 +3,10 @@ package sms
 import (
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
-//邮件推送产品短信功能
+// 邮件推送产品短信功能
 type SingleSendSmsArgs struct {
 	SignName     string
 	TemplateCode string

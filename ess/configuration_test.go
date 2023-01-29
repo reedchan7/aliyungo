@@ -3,7 +3,7 @@ package ess
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestEssScalingConfigurationCreationAndDeletion(t *testing.T) {

@@ -3,7 +3,7 @@ package pvtz
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestDescribeRegions(t *testing.T) {

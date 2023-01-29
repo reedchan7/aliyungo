@@ -2,21 +2,20 @@ package sts
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"strconv"
 	"testing"
 	"time"
 
-	"fmt"
+	"github.com/reedchan7/aliyungo/ecs"
 
-	"github.com/denverdino/aliyungo/ecs"
-
-	"github.com/denverdino/aliyungo/ram"
+	"github.com/reedchan7/aliyungo/ram"
 )
 
 /*
-  Please also set account id in env so that roles could be created test
-	 AccessKeyId=YourAccessKeyId AccessKeySecret=YourAccessKeySecret AccountId=111111111 go test -v -run=AssumeRole
+	  Please also set account id in env so that roles could be created test
+		 AccessKeyId=YourAccessKeyId AccessKeySecret=YourAccessKeySecret AccountId=111111111 go test -v -run=AssumeRole
 */
 var (
 	accountId = os.Getenv("AccountId")
@@ -89,7 +88,7 @@ func createPolicyReq() *ram.PolicyRequest {
 func TestAssumeRole(t *testing.T) {
 
 	//
-	//1. create a role
+	// 1. create a role
 	//
 	ramClient := NewRAMTestClient()
 	roleResp, err := ramClient.CreateRole(role)
@@ -99,7 +98,7 @@ func TestAssumeRole(t *testing.T) {
 	}
 
 	//
-	//2. create a policy to have the access to oss
+	// 2. create a policy to have the access to oss
 	//
 	policyResp, err := ramClient.CreatePolicy(*createPolicyReq())
 	if err != nil {
@@ -108,7 +107,7 @@ func TestAssumeRole(t *testing.T) {
 	}
 
 	//
-	//2. attach a policy to this role
+	// 2. attach a policy to this role
 	//
 	attachPolicyRequest := ram.AttachPolicyToRoleRequest{
 		PolicyRequest: ram.PolicyRequest{
@@ -125,13 +124,13 @@ func TestAssumeRole(t *testing.T) {
 	}
 
 	//
-	//CAUTION: Aliyun right now have a bug, once a role is created, if you assume this role immediately, it will always fail.
+	// CAUTION: Aliyun right now have a bug, once a role is created, if you assume this role immediately, it will always fail.
 	//				You have to sleep for several seconds to work around this problem
 	//
 	time.Sleep(2 * time.Second)
 
 	//
-	//3. assume this role
+	// 3. assume this role
 	//
 	client := NewTestClient()
 	req := createAssumeRoleRequest(roleResp.Role.Arn)

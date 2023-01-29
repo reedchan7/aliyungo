@@ -1,10 +1,11 @@
 package ecs
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/magiconair/properties/assert"
 	"os"
 	"testing"
+
+	"github.com/magiconair/properties/assert"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestGenerateClientToken(t *testing.T) {

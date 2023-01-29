@@ -3,7 +3,7 @@ package ecs
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func testCreateVSwitch(t *testing.T, client *Client, regionId common.Region, zoneId string, vpcId string, vrouterId string) (vSwitchId string, err error) {

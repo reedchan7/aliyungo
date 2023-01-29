@@ -15,7 +15,7 @@ import (
 
 const dictionary = "_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-//CreateRandomString create random string
+// CreateRandomString create random string
 func CreateRandomString() string {
 	b := make([]byte, 32)
 	l := len(dictionary)
@@ -37,7 +37,7 @@ func CreateRandomString() string {
 	return string(b)
 }
 
-// Encode encodes the values into ``URL encoded'' form
+// Encode encodes the values into “URL encoded” form
 // ("acl&bar=baz&foo=quux") sorted by key.
 func Encode(v url.Values) string {
 	if v == nil {
@@ -95,7 +95,8 @@ func EncodeWithoutEscape(v url.Values) string {
 }
 
 func GetGMTime() string {
-	return time.Now().UTC().Format(http.TimeFormat)
+	// NOTE(cxy): Remove UTC conversion
+	return time.Now().Format(http.TimeFormat)
 }
 
 //

@@ -3,15 +3,15 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 // Types of disks
 type DiskType string
 
 const (
-	DiskTypeAll       = DiskType("all") //Default
+	DiskTypeAll       = DiskType("all") // Default
 	DiskTypeAllSystem = DiskType("system")
 	DiskTypeAllData   = DiskType("data")
 )
@@ -20,7 +20,7 @@ const (
 type DiskCategory string
 
 const (
-	DiskCategoryAll             = DiskCategory("all") //Default
+	DiskCategoryAll             = DiskCategory("all") // Default
 	DiskCategoryCloud           = DiskCategory("cloud")
 	DiskCategoryEphemeral       = DiskCategory("ephemeral")
 	DiskCategoryEphemeralSSD    = DiskCategory("ephemeral_ssd")
@@ -49,7 +49,7 @@ const (
 	DiskStatusDetaching = DiskStatus("Detaching")
 	DiskStatusCreating  = DiskStatus("Creating")
 	DiskStatusReIniting = DiskStatus("ReIniting")
-	DiskStatusAll       = DiskStatus("All") //Default
+	DiskStatusAll       = DiskStatus("All") // Default
 )
 
 // Charge type of disks
@@ -66,21 +66,20 @@ type DescribeDisksArgs struct {
 	ZoneId             string
 	DiskIds            []string
 	InstanceId         string
-	DiskType           DiskType     //enum for all(default) | system | data
-	Category           DiskCategory //enum for all(default) | cloud | ephemeral
-	Status             DiskStatus   //enum for In_use | Available | Attaching | Detaching | Creating | ReIniting | All(default)
+	DiskType           DiskType     // enum for all(default) | system | data
+	Category           DiskCategory // enum for all(default) | cloud | ephemeral
+	Status             DiskStatus   // enum for In_use | Available | Attaching | Detaching | Creating | ReIniting | All(default)
 	SnapshotId         string
 	DiskName           string
-	Portable           *bool //optional
-	DeleteWithInstance *bool //optional
-	DeleteAutoSnapshot *bool //optional
-	EnableAutoSnapshot *bool //optional
+	Portable           *bool // optional
+	DeleteWithInstance *bool // optional
+	DeleteAutoSnapshot *bool // optional
+	EnableAutoSnapshot *bool // optional
 	DiskChargeType     DiskChargeType
 	Tag                map[string]string
 	common.Pagination
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&diskitemtype
 type DiskItemType struct {
 	DiskId             string
@@ -269,7 +268,6 @@ type ResizeDiskResponse struct {
 	common.Response
 }
 
-//
 // ResizeDisk can only support to enlarge disk size
 // You can read doc at https://help.aliyun.com/document_detail/25522.html
 func (client *Client) ResizeDisk(diskId string, sizeGB int) error {

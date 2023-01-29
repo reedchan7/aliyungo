@@ -1,14 +1,13 @@
 package slb
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type DescribeZonesArgs struct {
 	RegionId common.Region
 }
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&zonetype
 type ZoneType struct {
 	ZoneId     string

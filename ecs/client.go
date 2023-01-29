@@ -3,7 +3,7 @@ package ecs
 import (
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 // Interval for checking status in WaitForXXX method
@@ -64,7 +64,7 @@ func NewECSClientWithSecurityToken(accessKeyId string, accessKeySecret string, s
 	return NewECSClientWithEndpointAndSecurityToken(endpoint, accessKeyId, accessKeySecret, securityToken, regionID)
 }
 
-//only for Hangzhou Regional Domain
+// only for Hangzhou Regional Domain
 func NewECSClientWithSecurityToken4RegionalDomain(accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	endpoint := os.Getenv("ECS_ENDPOINT")
 	if endpoint != "" {
@@ -120,7 +120,7 @@ func NewVPCClientWithSecurityToken(accessKeyId string, accessKeySecret string, s
 	return NewVPCClientWithEndpointAndSecurityToken(endpoint, accessKeyId, accessKeySecret, securityToken, regionID)
 }
 
-//Only for Hangzhou
+// Only for Hangzhou
 func NewVPCClientWithSecurityToken4RegionalDomain(accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	endpoint := os.Getenv("VPC_ENDPOINT")
 	if endpoint != "" {
@@ -147,7 +147,7 @@ func NewVPCClientWithEndpointAndSecurityToken(endpoint string, accessKeyId strin
 	return client
 }
 
-//Only for Hangzhou
+// Only for Hangzhou
 func NewVPCClientWithEndpointAndSecurityToken4RegionalDomain(endpoint string, accessKeyId string, accessKeySecret string, securityToken string, regionID common.Region) *Client {
 	client := &Client{}
 	client.WithEndpoint(endpoint).

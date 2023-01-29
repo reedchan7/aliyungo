@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 // Constants for Aliyun API requests
@@ -59,7 +59,7 @@ type ErrorResponse struct {
 // An Error represents a custom error for Aliyun API failure response
 type Error struct {
 	ErrorResponse
-	StatusCode int //Status Code of HTTP Response
+	StatusCode int // Status Code of HTTP Response
 }
 
 func (e *Error) Error() string {

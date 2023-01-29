@@ -1,13 +1,13 @@
 package oss_test
 
 import (
-	//"encoding/xml"
+	// "io"
+	// "io/ioutil"
+	"strings"
+	// "encoding/xml"
 	"testing"
 
-	"github.com/denverdino/aliyungo/oss"
-	//"io"
-	//"io/ioutil"
-	"strings"
+	"github.com/reedchan7/aliyungo/oss"
 )
 
 func TestCreateBucketMulti(t *testing.T) {

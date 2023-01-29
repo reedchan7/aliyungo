@@ -2,22 +2,21 @@ package cms
 
 import (
 	"net/http"
-
 	"os"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type Client struct {
 	endpoint        string
-	accessKeyId     string //Access Key Id
-	accessKeySecret string //Access Key Secret
+	accessKeyId     string // Access Key Id
+	accessKeySecret string // Access Key Secret
 
 	debug      bool
 	httpClient *http.Client
 	version    string
 	internal   bool
-	//region     common.Region
+	// region     common.Region
 	securityToken string
 }
 
@@ -42,7 +41,7 @@ func (client *Client) SetTransport(transport http.RoundTripper) {
 }
 
 const (
-	//TODO 旧的API，暂时保留
+	// TODO 旧的API，暂时保留
 	DefaultEndpoint = "http://alert.aliyuncs.com"
 	APIVersion      = "2015-08-15"
 	METHOD_GET      = "GET"
@@ -55,14 +54,14 @@ const (
 	CMSServiceCode     = "cms"
 )
 
-//TODO 旧的API
+// TODO 旧的API
 // NewClient creates a new instance of ECS client
 func NewClient(accessKeyId, accessKeySecret string) *Client {
 	return &Client{
 		accessKeyId:     accessKeyId,
 		accessKeySecret: accessKeySecret,
 		internal:        false,
-		//region:          region,
+		// region:          region,
 		version:    APIVersion,
 		endpoint:   DefaultEndpoint,
 		httpClient: &http.Client{},

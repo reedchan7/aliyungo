@@ -2,8 +2,9 @@ package standard
 
 import (
 	"fmt"
-	"github.com/denverdino/aliyungo/common"
 	"testing"
+
+	"github.com/reedchan7/aliyungo/common"
 )
 
 const (

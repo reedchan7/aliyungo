@@ -1,7 +1,7 @@
 package standard
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type DeletionProtection string
@@ -11,7 +11,7 @@ const (
 	DeletionProtectionDisabled = DeletionProtection("Disabled")
 )
 
-//https://help.aliyun.com/document_detail/28910.html?spm=5176.doc50083.6.580.b5wkQr
+// https://help.aliyun.com/document_detail/28910.html?spm=5176.doc50083.6.580.b5wkQr
 type CreateStackRequest struct {
 	RegionId           common.Region
 	StackName          string
@@ -81,7 +81,7 @@ func (client *Client) CreateStack(args *CreateStackRequest) (*CreateStackRespons
 	return stack, nil
 }
 
-//https://help.aliyun.com/document_detail/28911.html?spm=5176.doc28910.6.581.etoi2Z
+// https://help.aliyun.com/document_detail/28911.html?spm=5176.doc28910.6.581.etoi2Z
 type DeleteStackRequest struct {
 	RegionId           common.Region
 	StackId            string

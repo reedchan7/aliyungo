@@ -2,12 +2,13 @@ package cs
 
 import (
 	"fmt"
-	"github.com/denverdino/aliyungo/common"
 	"net/http"
+
+	"github.com/reedchan7/aliyungo/common"
 )
 
 type ClusterTokenReqeust struct {
-	//token 过期时间,如果不填写，则默认24小时过期
+	// token 过期时间,如果不填写，则默认24小时过期
 	Expired       int64 `json:"expired"`
 	IsPermanently bool  `json:"is_permanently"`
 }

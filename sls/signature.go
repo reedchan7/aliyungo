@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 const HeaderSLSPrefix1 = "x-log-"
@@ -31,12 +31,12 @@ func (client *Client) signRequest(req *request, payload []byte) {
 	if req.payload != nil {
 		hasher := md5.New()
 		hasher.Write(payload)
-		contentMd5 = strings.ToUpper(hex.EncodeToString(hasher.Sum(nil))) //string(md5.Sum(contentMd5))
+		contentMd5 = strings.ToUpper(hex.EncodeToString(hasher.Sum(nil))) // string(md5.Sum(contentMd5))
 		req.headers["Content-MD5"] = contentMd5
 
 	}
 	date := req.headers["Date"]
-	//date := util.GetGMTime()
+	// date := util.GetGMTime()
 	canonicalizedHeader := canonicalizeHeader(req.headers)
 
 	canonicalizedResource := canonicalizeResource(req)
@@ -65,7 +65,7 @@ func canonicalizeResource(req *request) string {
 	return canonicalizedResource
 }
 
-//Have to break the abstraction to append keys with lower case.
+// Have to break the abstraction to append keys with lower case.
 func canonicalizeHeader(headers map[string]string) string {
 	var canonicalizedHeaders []string
 

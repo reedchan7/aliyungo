@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type AddressType string
@@ -246,7 +246,7 @@ type LoadBalancerType struct {
 	NetworkType                  string
 	Bandwidth                    int
 	InternetChargeType           InternetChargeType
-	CreateTime                   string //Why not ISO 6801
+	CreateTime                   string // Why not ISO 6801
 	CreateTimeStamp              util.ISO6801Time
 	DeleteProtection             FlagType
 	ModificationProtectionStatus ModificationProtectionType
@@ -349,7 +349,7 @@ func (client *Client) WaitForLoadBalancerAsyn(loadBalancerId string, status Stat
 			}
 			return err
 		} else if lb != nil && Status(lb.LoadBalancerStatus) == status {
-			//TODO
+			// TODO
 			break
 		}
 		timeout = timeout - DefaultWaitForInterval
@@ -430,7 +430,7 @@ type ServiceManagedControlResponse struct {
 	common.Response
 }
 
-//api: https://yuque.antfin-inc.com/docs/share/63b5a2d3-6fb3-4bd7-a50e-c4b385b866fd?#
+// api: https://yuque.antfin-inc.com/docs/share/63b5a2d3-6fb3-4bd7-a50e-c4b385b866fd?#
 func (client *Client) ServiceManagedControl(args *ServiceManagedControlArgs) (err error) {
 	response := &ServiceManagedControlResponse{}
 	err = client.Invoke("ServiceManagedControl", args, response)

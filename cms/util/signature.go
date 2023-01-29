@@ -8,14 +8,18 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/denverdino/aliyungo/cms/bytesbuffer"
+	"github.com/reedchan7/aliyungo/cms/bytesbuffer"
 )
 
-/**
- 对字符串进行md5运算
- @param
-	data: 签名的内容
-**/
+/*
+*
+
+	 对字符串进行md5运算
+	 @param
+		data: 签名的内容
+
+*
+*/
 func Md5Signature(data string) string {
 	t := md5.New()
 	io.WriteString(t, data)
@@ -46,12 +50,16 @@ func Md5Base64_16(data string) string {
 	return base64.StdEncoding.EncodeToString([]byte(md5CharString))
 }
 
-/**
- hmac_sha1签名
- @param:
-	secret string:签名的key
-	message string：签名的内容
-**/
+/*
+*
+
+	 hmac_sha1签名
+	 @param:
+		secret string:签名的key
+		message string：签名的内容
+
+*
+*/
 func HmacSha1(secret string, message string) string {
 	key := []byte(secret)
 	h := hmac.New(sha1.New, key)

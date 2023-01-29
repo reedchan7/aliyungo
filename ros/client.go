@@ -5,6 +5,7 @@ import (
 	"crypto/md5"
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -12,10 +13,8 @@ import (
 	"net/url"
 	"time"
 
-	"fmt"
-
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 const (
@@ -151,7 +150,7 @@ func (client *Client) Invoke(region common.Region, method string, path string, q
 	// TODO move to util and add build val flag
 	httpReq.Header.Set("Date", util.GetGMTime())
 	httpReq.Header.Set("Accept", "application/json")
-	//httpReq.Header.Set("x-acs-version", client.Version)
+	// httpReq.Header.Set("x-acs-version", client.Version)
 	httpReq.Header["x-acs-version"] = []string{client.Version}
 
 	httpReq.Header["x-acs-signature-version"] = []string{"1.0"}
@@ -205,7 +204,7 @@ func (client *Client) Invoke(region common.Region, method string, path string, q
 
 	if response != nil && len(body) > 0 {
 		err = json.Unmarshal(body, response)
-		//fmt.Printf("%++v", response)
+		// fmt.Printf("%++v", response)
 		if err != nil {
 			return common.GetClientError(err)
 		}

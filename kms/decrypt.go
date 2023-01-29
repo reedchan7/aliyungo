@@ -1,8 +1,8 @@
 package kms
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
-//https://help.aliyun.com/document_detail/28950.html?spm=5176.doc28947.6.564.JrFZRr
+// https://help.aliyun.com/document_detail/28950.html?spm=5176.doc28947.6.564.JrFZRr
 type DecryptArgs struct {
 	CiphertextBlob    string
 	EncryptionContext map[string]string

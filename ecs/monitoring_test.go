@@ -4,21 +4,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 func TestMonitoring(t *testing.T) {
 	client := NewTestClient()
-	//client.SetDebug(true)
+	// client.SetDebug(true)
 
-	//Describe test instance
+	// Describe test instance
 	instance, err := client.DescribeInstanceAttribute(TestInstanceId)
 	if err != nil {
 		t.Fatalf("Failed to describe instance %s: %v", TestInstanceId, err)
 	}
 	t.Logf("Instance: %++v  %v", instance, err)
 
-	//Describe Instance Monitor Data
+	// Describe Instance Monitor Data
 	now := time.Now().UTC()
 
 	starting := time.Date(now.Year(), now.Month(), now.Day(), now.Hour()-2, now.Minute(), now.Second(), now.Nanosecond(), now.Location())
@@ -39,9 +39,9 @@ func TestMonitoring(t *testing.T) {
 	for _, data := range monitorData {
 		t.Logf("Monitor Data: %++v", data)
 	}
-	//Describe EIP monitor data
+	// Describe EIP monitor data
 
-	//Describe disk monitor data
+	// Describe disk monitor data
 	diskArgs := DescribeDisksArgs{
 		InstanceId: TestInstanceId,
 		RegionId:   instance.RegionId,

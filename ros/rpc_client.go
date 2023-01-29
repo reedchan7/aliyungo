@@ -1,8 +1,9 @@
 package ros
 
 import (
-	"github.com/denverdino/aliyungo/common"
 	"os"
+
+	"github.com/reedchan7/aliyungo/common"
 )
 
 const (

@@ -1,12 +1,11 @@
 package ros
 
 import (
+	"fmt"
 	"net/http"
 
-	"fmt"
-
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type DeletionProtection string
@@ -16,7 +15,7 @@ const (
 	DeletionProtectionDisabled = DeletionProtection("Disabled")
 )
 
-//https://help.aliyun.com/document_detail/28910.html?spm=5176.doc50083.6.580.b5wkQr
+// https://help.aliyun.com/document_detail/28910.html?spm=5176.doc50083.6.580.b5wkQr
 type CreateStackRequest struct {
 	Name               string
 	Template           string
@@ -41,7 +40,7 @@ func (client *Client) CreateStack(regionId common.Region, args *CreateStackReque
 	return stack, nil
 }
 
-//https://help.aliyun.com/document_detail/28911.html?spm=5176.doc28910.6.581.etoi2Z
+// https://help.aliyun.com/document_detail/28911.html?spm=5176.doc28910.6.581.etoi2Z
 type DeleteStackRequest struct {
 	RegionId common.Region
 }
@@ -78,7 +77,7 @@ func (client *Client) DeleteStack(regionId common.Region, stackId string, stackN
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28912.html?spm=5176.doc28911.6.582.X0FKwG
+// https://help.aliyun.com/document_detail/28912.html?spm=5176.doc28911.6.582.X0FKwG
 type AbandonStackRequest struct {
 	RegionId common.Region
 }
@@ -109,7 +108,7 @@ func (client *Client) AbandonStack(regionId common.Region, stackId string, stack
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28913.html?spm=5176.doc28912.6.583.vrfk38
+// https://help.aliyun.com/document_detail/28913.html?spm=5176.doc28912.6.583.vrfk38
 type DescribeStacksRequest struct {
 	RegionId   common.Region
 	StackId    string
@@ -151,7 +150,7 @@ func (client *Client) DescribeStacks(args *DescribeStacksRequest) (*DescribeStac
 	return stacks, nil
 }
 
-//https://help.aliyun.com/document_detail/28914.html?spm=5176.doc28913.6.584.9JAYPI
+// https://help.aliyun.com/document_detail/28914.html?spm=5176.doc28913.6.584.9JAYPI
 type DescribeStackRequest struct {
 	RegionId common.Region
 }
@@ -187,7 +186,7 @@ func (client *Client) DescribeStack(regionId common.Region, stackId string, stac
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/50083.html?spm=5176.doc28914.6.585.QnbbaF
+// https://help.aliyun.com/document_detail/50083.html?spm=5176.doc28914.6.585.QnbbaF
 type PreviewStackRequest struct {
 	Name            string
 	Template        string
@@ -222,7 +221,7 @@ func (client *Client) PreviewStack(regionId common.Region, args PreviewStackRequ
 	return stack, nil
 }
 
-//https://help.aliyun.com/document_detail/49066.html?spm=5176.doc28910.6.586.MJjWQh
+// https://help.aliyun.com/document_detail/49066.html?spm=5176.doc28910.6.586.MJjWQh
 type UpdateStackRequest struct {
 	Template          string
 	Parameters        interface{}

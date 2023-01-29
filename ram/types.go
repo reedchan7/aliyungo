@@ -1,7 +1,7 @@
 package ram
 
 import (
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 /*
@@ -14,11 +14,11 @@ const (
 )
 
 /*
-	AccountAlias
-	类型：String
-	必须：是
-	描述：指定云账号的别名, 长度限制为3-63个字符
-	限制：^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$
+AccountAlias
+类型：String
+必须：是
+描述：指定云账号的别名, 长度限制为3-63个字符
+限制：^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$
 */
 type AccountAlias string
 

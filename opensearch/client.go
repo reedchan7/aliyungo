@@ -1,6 +1,6 @@
 package opensearch
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 const (
 	Internet   = ""
@@ -13,7 +13,7 @@ type Client struct {
 	common.Client
 }
 
-//OpenSearch的API比较奇怪，action不在公共参数里面
+// OpenSearch的API比较奇怪，action不在公共参数里面
 type OpenSearchArgs struct {
 	Action string `ArgName:"action"`
 }

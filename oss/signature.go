@@ -1,8 +1,8 @@
 package oss
 
 import (
-	"github.com/denverdino/aliyungo/util"
-	//"log"
+	"github.com/reedchan7/aliyungo/util"
+	// "log"
 	"net/http"
 	"net/url"
 	"sort"
@@ -90,7 +90,7 @@ func (client *Client) signRequest(request *request) {
 
 	stringToSign := request.method + "\n" + contentMd5 + "\n" + contentType + "\n" + date + "\n" + canonicalizedHeader + canonicalizedResource
 
-	//log.Println("stringToSign: ", stringToSign)
+	// log.Println("stringToSign: ", stringToSign)
 	signature := util.CreateSignature(stringToSign, client.AccessKeySecret)
 
 	if urlSignature {
@@ -100,7 +100,7 @@ func (client *Client) signRequest(request *request) {
 	}
 }
 
-//Have to break the abstraction to append keys with lower case.
+// Have to break the abstraction to append keys with lower case.
 func canonicalizeHeader(headers http.Header) (newHeaders http.Header, result string) {
 	var canonicalizedHeaders []string
 	newHeaders = http.Header{}

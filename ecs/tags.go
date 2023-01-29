@@ -1,6 +1,6 @@
 package ecs
 
-import "github.com/denverdino/aliyungo/common"
+import "github.com/reedchan7/aliyungo/common"
 
 type TagResourceType string
 
@@ -13,7 +13,7 @@ const (
 
 type AddTagsArgs struct {
 	ResourceId   string
-	ResourceType TagResourceType //image, instance, snapshot or disk
+	ResourceType TagResourceType // image, instance, snapshot or disk
 	RegionId     common.Region
 	Tag          map[string]string
 }
@@ -33,7 +33,7 @@ func (client *Client) AddTags(args *AddTagsArgs) error {
 
 type RemoveTagsArgs struct {
 	ResourceId   string
-	ResourceType TagResourceType //image, instance, snapshot or disk
+	ResourceType TagResourceType // image, instance, snapshot or disk
 	RegionId     common.Region
 	Tag          map[string]string
 }
@@ -58,7 +58,7 @@ type ResourceItemType struct {
 }
 
 type DescribeResourceByTagsArgs struct {
-	ResourceType TagResourceType //image, instance, snapshot or disk
+	ResourceType TagResourceType // image, instance, snapshot or disk
 	RegionId     common.Region
 	Tag          map[string]string
 	common.Pagination
@@ -100,7 +100,7 @@ type TagItemType struct {
 
 type DescribeTagsArgs struct {
 	RegionId     common.Region
-	ResourceType TagResourceType //image, instance, snapshot or disk
+	ResourceType TagResourceType // image, instance, snapshot or disk
 	ResourceId   string
 	Tag          map[string]string
 	common.Pagination

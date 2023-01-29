@@ -3,8 +3,8 @@ package ecs
 import (
 	"time"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type CreateVSwitchArgs struct {
@@ -67,7 +67,6 @@ const (
 	VSwitchStatusAvailable = VSwitchStatus("Available")
 )
 
-//
 // You can read doc at http://docs.aliyun.com/#/pub/ecs/open-api/datatype&vswitchsettype
 type VSwitchSetType struct {
 	VSwitchId               string

@@ -3,7 +3,7 @@ package slb
 import (
 	"testing"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
 func TestLoadBalancer(t *testing.T) {
@@ -123,11 +123,11 @@ func TestLoadBalancerIPv6(t *testing.T) {
 
 func TestClient_DescribeLoadBalancers(t *testing.T) {
 	client := NewTestNewSLBClientForDebug()
-	//client.SetSecurityToken(TestSecurityToken)
+	// client.SetSecurityToken(TestSecurityToken)
 
 	args := &DescribeLoadBalancersArgs{
 		RegionId: TestRegionID,
-		//SecurityToken: TestSecurityToken,
+		// SecurityToken: TestSecurityToken,
 	}
 
 	slbs, err := client.DescribeLoadBalancers(args)

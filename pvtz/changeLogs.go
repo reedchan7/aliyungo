@@ -1,8 +1,8 @@
 package pvtz
 
 import (
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
 type DescribeChangeLogsArgs struct {
@@ -15,7 +15,6 @@ type DescribeChangeLogsArgs struct {
 	common.Pagination
 }
 
-//
 type ChangeLogType struct {
 	OperTimestamp int64
 	OperAction    string

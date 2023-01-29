@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
     - image: circleci/golang:1.10
-    working_directory: /go/src/github.com/denverdino/aliyungo
+    working_directory: /go/src/github.com/reedchan7/aliyungo
     steps:
     - checkout
     - run: go get -t -d -v ./...

@@ -9,12 +9,11 @@ import (
 	"net/url"
 	"strconv"
 	"sync"
-
-	//"net/http"
+	// "net/http"
 	"testing"
 	"time"
 
-	"github.com/denverdino/aliyungo/oss"
+	"github.com/reedchan7/aliyungo/oss"
 )
 
 var (

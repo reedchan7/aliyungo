@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
-	"github.com/denverdino/aliyungo/util"
+	"github.com/reedchan7/aliyungo/common"
+	"github.com/reedchan7/aliyungo/util"
 )
 
-//https://help.aliyun.com/document_detail/28916.html?spm=5176.doc49066.6.588.d7Ntjs
+// https://help.aliyun.com/document_detail/28916.html?spm=5176.doc49066.6.588.d7Ntjs
 type Resource struct {
 	Id           string
 	Name         string
@@ -29,7 +29,7 @@ func (client *Client) DescribeResources(stackId, stackName string) ([]*Resource,
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28917.html?spm=5176.doc28916.6.589.BUPJqx
+// https://help.aliyun.com/document_detail/28917.html?spm=5176.doc28916.6.589.BUPJqx
 func (client *Client) DescribeResource(stackId, stackName, resourceName string) (*Resource, error) {
 	response := &Resource{}
 	err := client.Invoke("", http.MethodGet, fmt.Sprintf("/stacks/%s/%s/resources/%s", stackName, stackId, resourceName), nil, nil, &response)
@@ -40,7 +40,7 @@ func (client *Client) DescribeResource(stackId, stackName, resourceName string) 
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28917.html?spm=5176.doc28916.6.589.BUPJqx
+// https://help.aliyun.com/document_detail/28917.html?spm=5176.doc28916.6.589.BUPJqx
 func (client *Client) DescribeResourceByRegion(regionId common.Region, stackId, stackName, resourceName string) (*Resource, error) {
 	response := &Resource{}
 	err := client.Invoke(regionId, http.MethodGet, fmt.Sprintf("/stacks/%s/%s/resources/%s", stackName, stackId, resourceName), nil, nil, &response)
@@ -51,7 +51,7 @@ func (client *Client) DescribeResourceByRegion(regionId common.Region, stackId, 
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28918.html?spm=5176.doc28917.6.590.smknll
+// https://help.aliyun.com/document_detail/28918.html?spm=5176.doc28917.6.590.smknll
 type SupportStatus string
 
 const (
@@ -85,7 +85,7 @@ func (client *Client) DescribeResoureTypes(supportStatus SupportStatus) (*Descri
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28919.html?spm=5176.doc28918.6.591.7QkDYC
+// https://help.aliyun.com/document_detail/28919.html?spm=5176.doc28918.6.591.7QkDYC
 type DescribeResoureTypeResponse struct {
 	common.Response
 	ResourceType  string
@@ -104,7 +104,7 @@ func (client *Client) DescribeResoureType(typeName string) (*DescribeResoureType
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28920.html?spm=5176.doc28919.6.592.IiEwar
+// https://help.aliyun.com/document_detail/28920.html?spm=5176.doc28919.6.592.IiEwar
 type DescribeResoureTypeTemplateResponse struct {
 	common.Response
 	ROSTemplateFormatVersion string

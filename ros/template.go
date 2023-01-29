@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/denverdino/aliyungo/common"
+	"github.com/reedchan7/aliyungo/common"
 )
 
-//https://help.aliyun.com/document_detail/28922.html?spm=5176.doc28920.6.594.UI5p6A
+// https://help.aliyun.com/document_detail/28922.html?spm=5176.doc28920.6.594.UI5p6A
 type DescribeTemplateResponse struct {
 	common.Response
 	ROSTemplateFormatVersion string
@@ -30,7 +30,7 @@ func (client *Client) DescribeTemplate(stackId, stackName string) (*DescribeTemp
 	return response, nil
 }
 
-//https://help.aliyun.com/document_detail/28923.html?spm=5176.doc28922.6.595.uhWWET
+// https://help.aliyun.com/document_detail/28923.html?spm=5176.doc28922.6.595.uhWWET
 type ValidateTemplateRequest struct {
 	Template string
 }
